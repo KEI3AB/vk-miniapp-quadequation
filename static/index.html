@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+
+
+</head>
+<body>
+    <h2>Решатель квадратного уравнения</h2>
+    <p>Вид уравнения: ax^2 + bx + c = 0</p>
+    <p>Введите коэффициенты a, b и c (a может быть равен 0)</p>
+
+    <label>Коэффициент a <input id="a" placeholder="0" value="1"/> </label>
+    <label>Коэффициент b <input id="b" placeholder="0" value="0"/> </label>
+    <label>Коэффициент c <input id="c" placeholder="0" value="-1"/> </label>
+
+    <button id="solve">Посчитать</button>
+
+    <div id="result" type="button"></div>
+    
+    <script>
+        const el = id => document.getElementById(id)
+        el('solve').addEventListener('click', async () =>{
+            el('result').textContent = ""
+
+            const a = Number(el('a').value)
+            const b = Number(el('b').value)
+            const c = Number(el('c').value)
+
+            if (Number.isNaN(a) || Number.isNaN(b) || Number.isNaN(c)) {
+                el('result').textContent = "Некорректные числа"
+                return
+            }
+
+            try {
+                const res = await fetch('/solve', {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({a, b, c})
+                })
+                if (!res.ok) {
+                    const txt = await res.text()
+                    el('result').textContent = "Error: " + txt
+                    return
+                }
+
+                const data = await res.json()
+                const roots = Array.isArray(data.roots) ? data.roots : []
+                if (roots.length === 0) {
+                    el('result').textContent = "Нет вещественных корней"
+                } else if (roots.length === 1) {
+                    el('result').textContent = "Один корень: x = " + roots[0]
+                } else {
+                    el('result').textContent = "Два корня:\nx1 = " + roots[0] + "\nx2 = " + roots[1]
+                }
+            } catch (err) {
+                el('solve').textContent = "Network error: " + err
+            }
+        })
+    </script>
+</body>
+
+</html>

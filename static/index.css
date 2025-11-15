@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    color: aliceblue;
+    margin: 0px;
+    padding: 0px;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+    gap: 15px;
+
+    background: #000f47;
+    background: linear-gradient(90deg, rgba(0, 15, 71, 1) 0%, rgba(28, 3, 130, 1) 25%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 55%, rgba(28, 3, 130, 1) 75%, rgba(0, 15, 71, 1) 100%);
+}
+
+h2 {
+    font-size: 48px;
+}
+
+label {
+    display: grid;
+    width: 80%;
+    padding-left: 30px;
+
+    gap: 5px;
+}
+
+label input {
+    font-size: 18px;
+
+    background: none;
+    border: 2px solid gray;
+    border-radius: 6px;
+    padding: 5px;
+}
+input:active, input:focus {
+    border-style: double;
+    border: 2px solid gray;
+    outline: 2px solid rgb(161, 153, 153);
+    outline-offset: 2px;
+}
+
+button {
+    font-size: 20px;
+    margin-left: 30px;
+
+    padding: 5px;
+    width: 50%;
+    background: #000f47;
+    background: -webkit-linear-gradient(24deg, rgba(0, 15, 71, 1) 10%, rgba(28, 3, 130, 1) 28%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 75%, rgba(28, 3, 130, 1) 88%, rgba(0, 15, 71, 1) 100%);
+    background: -moz-linear-gradient(24deg, rgba(0, 15, 71, 1) 10%, rgba(28, 3, 130, 1) 28%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 75%, rgba(28, 3, 130, 1) 88%, rgba(0, 15, 71, 1) 100%);
+    background: linear-gradient(24deg, rgba(0, 15, 71, 1) 10%, rgba(28, 3, 130, 1) 28%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 75%, rgba(28, 3, 130, 1) 88%, rgba(0, 15, 71, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000F47", endColorstr="#000F47", GradientType=0);
+
+    border: 2px solid gray;
+    border-radius: 6px;
+
+    transition: all 0.25s ease;
+}
+button:hover {
+    background-position: 100% 0%; /* плавный сдвиг */
+}
