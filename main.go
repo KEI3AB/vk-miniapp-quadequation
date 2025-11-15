@@ -67,6 +67,10 @@ func main() {
 		port = ":8080"
 	}
 
+	if port[0] != ':' {
+		port = ":" + port
+	}
+
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 	http.HandleFunc("/solve", solveHandler)
