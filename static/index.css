@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-size: 26px;
+    font-size: 1.3rem;
     gap: 15px;
 
     background: #000f47;
@@ -20,7 +20,7 @@ body {
 }
 
 h2 {
-    font-size: 48px;
+    font-size: 2.2rem;
 }
 
 label {
@@ -32,7 +32,7 @@ label {
 }
 
 label input {
-    font-size: 18px;
+    font-size: 1rem;
 
     background: none;
     border: 2px solid gray;
@@ -47,11 +47,11 @@ input:active, input:focus {
 }
 
 button {
-    font-size: 20px;
+    font-size: 1.1rem;
     margin-left: 30px;
 
     padding: 5px;
-    width: 50%;
+    width: 60%;
     background: #000f47;
     background: -webkit-linear-gradient(24deg, rgba(0, 15, 71, 1) 10%, rgba(28, 3, 130, 1) 28%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 75%, rgba(28, 3, 130, 1) 88%, rgba(0, 15, 71, 1) 100%);
     background: -moz-linear-gradient(24deg, rgba(0, 15, 71, 1) 10%, rgba(28, 3, 130, 1) 28%, rgba(28, 14, 176, 1) 45%, rgba(28, 14, 176, 1) 75%, rgba(28, 3, 130, 1) 88%, rgba(0, 15, 71, 1) 100%);
@@ -61,8 +61,36 @@ button {
     border: 2px solid gray;
     border-radius: 6px;
 
-    transition: all 0.25s ease;
+    transition: transform 0.25s ease;
 }
 button:hover {
-    background-position: 100% 0%; /* плавный сдвиг */
+    transform: translateY(1px)
+}
+
+@media (max-width: 1080px) {
+    * {
+        margin-left: 0.25rem;
+    }
+    body {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    label {
+        width: 90%;
+    }
+
+    label input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    button {
+        width: 80%;
+        font-size: 1rem;
+        padding: 12px;
+    }
 }
